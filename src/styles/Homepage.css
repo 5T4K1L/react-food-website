@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Dangrek&family=Dawning+of+a+New+Day&family=Dongle:wght@300&family=Euphoria+Script&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #270100;
+  height: 100dvh;
+}

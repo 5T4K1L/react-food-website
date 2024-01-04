@@ -1,0 +1,40 @@
+.featuredContainer {
+  background-color: #fff7ef;
+  margin: 0 2rem;
+  border-radius: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  height: 10rem;
+  padding: 1em;
+  align-items: center;
+  position: relative;
+}
+
+.featuredContainer .leftSide {
+  position: relative;
+  transform: translate(0, -10%);
+}
+
+.featuredContainer .leftSide p {
+  font-family: "Euphoria Script";
+  font-size: 40px;
+}
+
+.featuredContainer .leftSide button {
+  background-color: #ca9e76;
+  font-family: "Dongle";
+  font-size: 15px;
+  color: white;
+  padding: 0 1em;
+  border-radius: 2em;
+  width: 6rem;
+  position: absolute;
+  top: 80%;
+  transform: translate(40%, -50%);
+}
+
+.featuredContainer .rightSide img {
+  height: 7em;
+  aspect-ratio: 10 / 13;
+  object-fit: cover;
+}

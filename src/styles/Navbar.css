@@ -1,0 +1,71 @@
+.navbarContainer {
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: -1.5rem;
+}
+
+.sideMenu {
+  position: absolute;
+  z-index: 1;
+  background-color: #410200;
+  padding: 1rem 2.5rem;
+  border-radius: 1em 0 0 1em;
+  transition: 0.5s ease-in-out;
+  top: 20%;
+  text-align: center;
+}
+
+.sideMenu a {
+  font-family: "Dongle";
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+.hamburgerMenu {
+  display: block;
+  cursor: pointer;
+  margin-top: 0.6rem;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: white;
+}
+
+.kuyaJher p {
+  font-family: "Dawning of a New Day";
+  font-size: 35px;
+}
+
+.cart {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.cart img {
+  height: 25px;
+}
+
+.cart p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ff8383;
+  font-family: "Dangrek";
+  color: white;
+  width: 1em;
+  height: 1em;
+  font-size: 15px;
+  border-radius: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
