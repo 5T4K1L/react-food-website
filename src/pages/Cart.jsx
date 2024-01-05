@@ -10,6 +10,7 @@ const Cart = () => {
   const [userUID, setUserUID] = useState();
   const [cart, setCart] = useState([]);
   const [price, setPrice] = useState();
+  const [fee, setFee] = useState();
   onAuthStateChanged(auth, (user) => {
     setUserUID(user.uid);
   });
@@ -24,7 +25,11 @@ const Cart = () => {
 
         const data = await getDocs(q);
 
-        let totalSum = 0;
+        const getFee = await getDocs(collection(db, "addFee"));
+        const feeValue = getFee.docs[0]?.data()?.fee;
+        setFee(feeValue);
+
+        let totalSum = Number(feeValue || 0);
 
         const cartData = [];
         data.forEach((doc) => {
@@ -63,7 +68,7 @@ const Cart = () => {
           </div>
         </div>
       ))}
-      <Checkout price={price} />
+      <Checkout price={price} fee={fee} />
     </div>
   );
 };

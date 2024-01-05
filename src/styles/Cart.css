@@ -1,3 +1,7 @@
+.cartContainer {
+  margin-bottom: 10rem;
+}
+
 .cartProducts {
   color: white;
   font-family: "Dongle";

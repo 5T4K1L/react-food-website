@@ -6,6 +6,7 @@ import ProductView from "./pages/ProductView";
 import Cart from "./pages/Cart";
 import { onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import { auth } from "./firebase";
+import Menu from "./pages/Menu";
 
 const App = () => {
   useEffect(() => {
@@ -23,8 +24,12 @@ const App = () => {
       <Routes>
         <Route index element={<Homepage />} />
         <Route path="/products" element={<Products />} />
+
         <Route path="/view-product/:productId" element={<ProductView />} />
+
         <Route path="/cart" element={<Cart />} />
+
+        <Route path="/menu" element={<Menu />} />
       </Routes>
     </BrowserRouter>
   );
