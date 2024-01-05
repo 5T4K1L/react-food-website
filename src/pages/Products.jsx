@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Search from "../components/Search";
 import "../styles/Products.css";
-import dummyPic from "../images/pexels-lisa-fotios-1373915.jpg";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
@@ -38,7 +37,7 @@ const Products = () => {
               <div key={product.id}>
                 <Link to={`/view-product/${product.id}`}>
                   <div className="product">
-                    <img src={dummyPic} alt="" />
+                    <img src={product.photoURL} alt="" />
                     <p className="name">{product.product_name}</p>
                     <p className="price">Php {product.regular_price}</p>
                   </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../styles/BestSeller.css";
-import dummyPic from "../images/pexels-lisa-fotios-1373915.jpg";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -29,8 +28,8 @@ const BestSeller = () => {
       {bestSellerProducts.map((bestSellerProduct) => (
         <div className="productParent" key={bestSellerProduct.id}>
           <div className="products">
-            <a>
-              <img src={dummyPic} alt="" />
+            <a href={`/view-product/${bestSellerProduct.id}`}>
+              <img src={bestSellerProduct.photoURL} alt="" />
               <p>{bestSellerProduct.product_name}</p>
               <p>Php {bestSellerProduct.regular_price}</p>
             </a>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/BestSeller.css";
-import dummyPic from "../images/pexels-lisa-fotios-1373915.jpg";
-import { collection, getDocs, query } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
 const MustTry = () => {
@@ -30,8 +29,8 @@ const MustTry = () => {
       {mustTryProducts.map((mustTryProducts) => (
         <div className="productParent" key={mustTryProducts.id}>
           <div className="products">
-            <a>
-              <img src={dummyPic} alt="" />
+            <a href={`/view-product/${mustTryProducts.id}`}>
+              <img src={mustTryProducts.photoURL} alt="" />
               <p>{mustTryProducts.product_name}</p>
               <p>Php {mustTryProducts.regular_price}</p>
             </a>

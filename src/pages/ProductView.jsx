@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import dummyPic from "../images/pexels-lisa-fotios-1373915.jpg";
 import "../styles/ProductView.css";
 import { useParams } from "react-router-dom";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 const ProductView = () => {
@@ -32,7 +31,7 @@ const ProductView = () => {
     <div className="viewContainer">
       <Navbar />
       <div className="largeImage">
-        <img src={dummyPic} alt="" />
+        <img src={product.photoURL} alt="" />
       </div>
 
       <div className="productDescription">
