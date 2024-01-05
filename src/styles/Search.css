@@ -1,0 +1,28 @@
+.searchContainer form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.searchContainer button {
+  background-color: #680300;
+  padding: 5px 8px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.searchContainer img {
+  height: 20px;
+  display: flex;
+}
+
+.searchContainer input {
+  background: white;
+  border: none;
+  border-radius: 2rem;
+  font-family: "Dongle";
+  font-size: 20px;
+  padding-left: 1rem;
+  outline: none;
+}

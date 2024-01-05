@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import "../styles/Navbar.css";
 import cart from "../svgs/add-to-cart-svgrepo-com.svg";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [sideBar, setSideBar] = useState(false);
+  const [sideBar, setSideBar] = useState(true);
+  const nav = useNavigate();
 
   const handleSide = () => {
     setSideBar(!sideBar);
   };
   return (
-    <div className="navbarContainer">
+    <div
+      className="navbarContainer"
+      style={sideBar ? { overflow: "hidden" } : null}
+    >
       <div
         style={sideBar ? { right: -50 + "%" } : { right: 0 }}
         className="sideMenu"
       >
-        <a href="">
+        <a href="/products">
           <p>All Products</p>
         </a>
         <a href="">
