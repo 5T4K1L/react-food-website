@@ -1,0 +1,87 @@
+.largeImage {
+  background-color: #4d2726;
+  display: flex;
+  justify-content: center;
+  height: 20rem;
+  align-items: center;
+}
+
+.largeImage img {
+  height: 200px;
+  object-fit: contain;
+}
+
+.productDescription {
+  color: white;
+  font-family: "Dongle";
+  margin: -2rem 2rem;
+}
+
+.productname {
+  font-size: 50px;
+}
+
+.productDesc {
+  font-size: 25px;
+  margin-top: -3rem;
+}
+
+.viewContainer .inputs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 2rem;
+}
+
+.viewContainer .inputs input,
+select {
+  font-family: "Dongle";
+  font-size: 20px;
+
+  text-align: center;
+  border-radius: 1rem;
+  outline: none;
+  height: 2rem;
+}
+
+.viewContainer .inputs select,
+option {
+  appearance: none;
+  border: none;
+  width: 10rem;
+  background: white;
+}
+
+.viewContainer .inputs input {
+  width: 8rem;
+  border: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+.addtocart {
+  background-color: white;
+  font-family: "Dongle";
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  align-items: center;
+}
+
+.addtocart p {
+  color: black;
+  font-size: 30px;
+}
+
+.addtocart button {
+  font-family: "Dongle";
+  color: white;
+  background-color: #4c2726;
+  font-size: 25px;
+  padding: 0 2rem;
+  border-radius: 2rem;
+  text-align: center;
+  padding-top: 3px;
+}

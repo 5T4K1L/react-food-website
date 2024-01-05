@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Search from "../components/Search";
 import "../styles/Products.css";
 import dummyPic from "../images/pexels-lisa-fotios-1373915.jpg";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
+import { Link } from "react-router-dom";
 
 const Products = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const getAllProducts = async () => {
+      const data = await getDocs(collection(db, "products"));
+      setProducts(
+        data.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+      );
+    };
+
+    getAllProducts();
+  }, []);
   return (
     <div className="productContainer">
       <Navbar />
@@ -17,13 +34,17 @@ const Products = () => {
 
         <div className="allproducts">
           <div className="productsParent">
-            <a href="">
-              <div className="product">
-                <img src={dummyPic} alt="" />
-                <p className="name">Product Name</p>
-                <p className="price">Php 120</p>
+            {products.map((product) => (
+              <div key={product.id}>
+                <Link to={`/view-product/${product.id}`}>
+                  <div className="product">
+                    <img src={dummyPic} alt="" />
+                    <p className="name">{product.product_name}</p>
+                    <p className="price">Php {product.regular_price}</p>
+                  </div>
+                </Link>
               </div>
-            </a>
+            ))}
           </div>
         </div>
       </div>
