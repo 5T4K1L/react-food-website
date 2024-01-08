@@ -1,3 +1,7 @@
+.viewContainer {
+  margin-bottom: 9rem;
+}
+
 .largeImage {
   background-color: #4d2726;
   display: flex;
@@ -28,9 +32,8 @@
 
 .viewContainer .inputs {
   display: flex;
-  justify-content: center;
   gap: 2rem;
-  margin: 3rem 2rem;
+  margin: 3rem 0;
 }
 
 .viewContainer .inputs input,
@@ -68,6 +71,9 @@ input[type="number"] {
   justify-content: center;
   gap: 4rem;
   align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .addtocart p {

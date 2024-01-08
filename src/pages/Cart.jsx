@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import "../styles/Cart.css";
 import Checkout from "../components/Checkout";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [userUID, setUserUID] = useState();
   const [cart, setCart] = useState([]);
   const [price, setPrice] = useState();
   const [fee, setFee] = useState();
+  const nav = useNavigate();
+
   onAuthStateChanged(auth, (user) => {
     setUserUID(user.uid);
   });
@@ -34,7 +44,7 @@ const Cart = () => {
         const cartData = [];
         data.forEach((doc) => {
           const data = doc.data();
-          cartData.push(data);
+          cartData.push({ id: doc.id, ...data });
           totalSum += Number(data.price);
         });
 
@@ -45,6 +55,29 @@ const Cart = () => {
 
     getCart();
   }, [userUID]);
+
+  const handleDelete = async (productID) => {
+    await deleteDoc(doc(db, "userCart", productID));
+
+    const q = query(collection(db, "userCart"), where("uid", "==", userUID));
+    const data = await getDocs(q);
+
+    const getFee = await getDocs(collection(db, "addFee"));
+    const feeValue = getFee.docs[0]?.data()?.fee;
+    setFee(feeValue);
+
+    let totalSum = Number(feeValue || 0);
+
+    const updatedCart = [];
+    data.forEach((doc) => {
+      const cartData = doc.data();
+      updatedCart.push({ id: doc.id, ...cartData });
+      totalSum += Number(cartData.price);
+    });
+
+    setPrice(totalSum);
+    setCart(updatedCart);
+  };
 
   return (
     <div className="cartContainer">
@@ -60,6 +93,12 @@ const Cart = () => {
               <p>Product Description</p>
               <p>{carts.size}</p>
               <p>x{carts.quantity}</p>
+              <button
+                onClick={() => handleDelete(carts.id)}
+                className="deleteCart"
+              >
+                Delete
+              </button>
             </div>
           </div>
 

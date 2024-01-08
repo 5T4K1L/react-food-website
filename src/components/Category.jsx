@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Category.css";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Category = () => {
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async (e) => {
+      const cat = await getDocs(collection(db, "category"));
+      const catData = cat.docs.map((doc) => doc.data().category);
+      setCategory(catData);
+    };
+
+    getProducts();
+  }, []);
+
   return (
     <div className="categoryContainer">
       <p>Categories</p>
       <div className="categories">
-        <button>Category 1</button>
-        <button>Category 2</button>
-        <button>Category 3</button>
-        <button>Category 4</button>
+        {category.map((cat, index) => (
+          <a href={`/category/${cat}`} key={index}>
+            <button>{cat}</button>
+          </a>
+        ))}
       </div>
     </div>
   );

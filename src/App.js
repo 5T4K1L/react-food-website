@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import { onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import { auth } from "./firebase";
 import Menu from "./pages/Menu";
+import CategoryView from "./pages/CategoryView";
 
 const App = () => {
   useEffect(() => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/products" element={<Products />} />
 
         <Route path="/view-product/:productId" element={<ProductView />} />
+        <Route path="/category/:category" element={<CategoryView />} />
 
         <Route path="/cart" element={<Cart />} />
 

@@ -26,8 +26,8 @@ const MustTry = () => {
   return (
     <div className="bestContainer">
       <p>Must Try</p>
-      {mustTryProducts.map((mustTryProducts) => (
-        <div className="productParent" key={mustTryProducts.id}>
+      <div className="productParent">
+        {mustTryProducts.map((mustTryProducts) => (
           <div className="products">
             <a href={`/view-product/${mustTryProducts.id}`}>
               <img src={mustTryProducts.photoURL} alt="" />
@@ -35,8 +35,8 @@ const MustTry = () => {
               <p>Php {mustTryProducts.regular_price}</p>
             </a>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

@@ -25,8 +25,8 @@ const BestSeller = () => {
   return (
     <div className="bestContainer">
       <p>Best Seller</p>
-      {bestSellerProducts.map((bestSellerProduct) => (
-        <div className="productParent" key={bestSellerProduct.id}>
+      <div className="productParent">
+        {bestSellerProducts.map((bestSellerProduct) => (
           <div className="products">
             <a href={`/view-product/${bestSellerProduct.id}`}>
               <img src={bestSellerProduct.photoURL} alt="" />
@@ -34,8 +34,8 @@ const BestSeller = () => {
               <p>Php {bestSellerProduct.regular_price}</p>
             </a>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
