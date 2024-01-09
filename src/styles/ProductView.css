@@ -1,5 +1,4 @@
 .viewContainer {
-  margin-bottom: 9rem;
   height: 100dvh;
 }
 
@@ -72,9 +71,6 @@ input[type="number"] {
   justify-content: center;
   gap: 4rem;
   align-items: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
 
 .addtocart p {

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/ProductView.css";
 import { useNavigate, useParams } from "react-router-dom";
@@ -111,26 +111,27 @@ const ProductView = () => {
       </div>
 
       <div className="inputs">
-        <form action=""></form>
-        <select
-          onChange={(e) => {
-            setSizeValue(e.target.value);
-          }}
-        >
-          <option value="">Choose Sizes</option>
-          <option value="regular">{`Regular (${product.regular_price})`}</option>
-          <option value="small">{`Small (${product.small_price})`}</option>
-          <option value="medium">{`Medium (${product.medium_price})`}</option>
-          <option value="large">{`Large (${product.large_price})`}</option>
-        </select>
+        <form style={{ marginLeft: 50 }}>
+          <select
+            onChange={(e) => {
+              setSizeValue(e.target.value);
+            }}
+          >
+            <option value="">Choose Sizes</option>
+            <option value="regular">{`Regular (${product.regular_price})`}</option>
+            <option value="small">{`Small (${product.small_price})`}</option>
+            <option value="medium">{`Medium (${product.medium_price})`}</option>
+            <option value="large">{`Large (${product.large_price})`}</option>
+          </select>
 
-        <input
-          type="number"
-          id="quantity"
-          placeholder="Quantity"
-          value={quantity}
-          onChange={(e) => debouncedSetQuantity(e.target.value)}
-        />
+          <input
+            type="number"
+            id="quantity"
+            placeholder="Quantity"
+            value={quantity}
+            onChange={(e) => debouncedSetQuantity(e.target.value)}
+          />
+        </form>
       </div>
 
       <div className="addtocart">
