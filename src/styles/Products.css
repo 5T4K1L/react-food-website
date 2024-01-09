@@ -1,3 +1,7 @@
+.productContainer {
+  height: 100dvh;
+}
+
 .allProducts {
   color: white;
   margin: 2rem;
