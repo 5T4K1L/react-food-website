@@ -88,7 +88,7 @@ const ProductView = () => {
           uid: currentUser.uid,
         });
 
-        nav("/");
+        nav(-1);
       }
     },
     [sizeValue, quantity, product, currentUser, nav]
