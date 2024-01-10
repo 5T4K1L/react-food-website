@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/ProductView.css";
 import { useNavigate, useParams } from "react-router-dom";
@@ -28,23 +28,6 @@ const ProductView = () => {
   });
 
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const productDoc = await getDoc(doc(db, "products", productId));
-
-        if (productDoc.exists()) {
-          setProduct(productDoc.data());
-        } else {
-          console.error("Product not found");
-        }
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      }
-    };
-    getProducts();
-  }, [productId]);
-
-  useEffect(() => {
     if (sizeValue && product) {
       const price =
         sizeValue === "regular"
@@ -60,7 +43,22 @@ const ProductView = () => {
       const totalPrice = Number(price * quantity);
       setTotal(totalPrice);
     }
-  }, [sizeValue, quantity, product]);
+
+    const getProducts = async () => {
+      try {
+        const productDoc = await getDoc(doc(db, "products", productId));
+
+        if (productDoc.exists()) {
+          setProduct(productDoc.data());
+        } else {
+          console.error("Product not found");
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+    getProducts();
+  }, [productId, sizeValue, quantity, product]);
 
   const handleAdd = useCallback(
     async (e) => {
