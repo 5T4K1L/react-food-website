@@ -17,41 +17,26 @@ const ProductView = () => {
   const [sizeValue, setSizeValue] = useState();
   const [quantity, setQuantity] = useState(1);
 
-  const [total, setTotal] = useState(0);
-
   const debouncedSetQuantity = debounce((value) => {
     setQuantity(value);
   }, 100);
+
+  const debouncedSetSize = debounce((value) => {
+    setSizeValue(value);
+    console.log(value);
+  }, 10);
 
   onAuthStateChanged(auth, (user) => {
     setCurrentUser(user);
   });
 
   useEffect(() => {
-    if (sizeValue && product) {
-      const price =
-        sizeValue === "regular"
-          ? product.regular_price
-          : sizeValue === "small"
-          ? product.small_price
-          : sizeValue === "medium"
-          ? product.medium_price
-          : sizeValue === "large"
-          ? product.large_price
-          : null;
-
-      const totalPrice = Number(price * quantity);
-      setTotal(totalPrice);
-    }
-
     const getProducts = async () => {
       try {
         const productDoc = await getDoc(doc(db, "products", productId));
 
         if (productDoc.exists()) {
           setProduct(productDoc.data());
-        } else {
-          console.error("Product not found");
         }
       } catch (error) {
         console.error("Error fetching product:", error);
@@ -63,26 +48,17 @@ const ProductView = () => {
   const handleAdd = useCallback(
     async (e) => {
       e.preventDefault();
-      console.log(sizeValue);
 
-      if (product) {
-        const price =
-          sizeValue === "regular"
-            ? product.regular_price
-            : sizeValue === "small"
-            ? product.small_price
-            : sizeValue === "medium"
-            ? product.medium_price
-            : sizeValue === "large"
-            ? product.large_price
-            : null;
+      if (sizeValue) {
+        const match = sizeValue.match(/Php (\d+)/);
+        const afterPhp = match[1];
 
         await addDoc(collection(db, "userCart"), {
           photoURL: product.photoURL,
-          price: Number(price * quantity),
           quantity: Number(quantity),
           product_name: product.product_name,
           size: sizeValue,
+          price: Number(afterPhp * quantity),
           uid: currentUser.uid,
         });
 
@@ -109,31 +85,21 @@ const ProductView = () => {
       </div>
 
       <div className="inputs">
-        <form style={{ marginLeft: 50 }}>
-          <select
-            onChange={(e) => {
-              setSizeValue(e.target.value);
-            }}
-          >
-            <option value="">Choose Sizes</option>
-            <option value="regular">{`Regular (${product.regular_price})`}</option>
-            <option value="small">{`Small (${product.small_price})`}</option>
-            <option value="medium">{`Medium (${product.medium_price})`}</option>
-            <option value="large">{`Large (${product.large_price})`}</option>
-          </select>
-
-          <input
-            type="number"
-            id="quantity"
-            placeholder="Quantity"
-            value={quantity}
-            onChange={(e) => debouncedSetQuantity(e.target.value)}
-          />
-        </form>
+        <select onChange={(e) => debouncedSetSize(e.target.value)}>
+          <option>Choose Sizes</option>
+          {product.sizes &&
+            product.sizes.map((size) => <option key={size}>{size}</option>)}
+        </select>
+        <input
+          type="number"
+          id="quantity"
+          placeholder="Quantity"
+          value={quantity}
+          onChange={(e) => debouncedSetQuantity(e.target.value)}
+        />
       </div>
 
       <div className="addtocart">
-        <p name="total">Php {total}</p>
         <button onClick={handleAdd}>ADD TO CART</button>
       </div>
     </div>
