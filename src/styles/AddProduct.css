@@ -1,0 +1,62 @@
+.addProduct input {
+  border: none;
+  font-family: "Dongle";
+  text-align: center;
+  font-size: 1.3rem;
+  outline: none;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  width: 10rem;
+}
+
+.second label {
+  color: lightblue;
+  font-family: "Dongle";
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.addProduct .first,
+.second,
+.third,
+.fourth,
+.fifth,
+.sixth,
+.seventh,
+.eighth {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.addProduct textarea {
+  border: none;
+  font-family: "Dongle";
+  text-align: center;
+  width: calc(100% - 4rem);
+  margin: 2rem;
+  margin-top: -0.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  outline: none;
+  height: 10rem;
+  padding: 1rem;
+}
+
+.addProduct select {
+  border: none;
+  background-color: white;
+  padding: 0 15px;
+}
+
+.addProduct .addproduct {
+  background-color: #7bc503;
+  margin: 2rem;
+  color: white;
+  font-family: "Dongle";
+  font-size: 1.5rem;
+  width: calc(100% - 4rem);
+  border-radius: 1rem;
+  margin-top: -1rem;
+}

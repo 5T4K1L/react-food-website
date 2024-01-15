@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import Search from "../components/Search";
 import "../styles/Products.css";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";

@@ -1,0 +1,38 @@
+.productContent {
+  font-family: "Dongle";
+  color: white;
+  margin-bottom: -2rem;
+  margin-left: 20%;
+}
+
+.productEditDelete {
+  display: flex;
+  flex-direction: column;
+  margin-top: -3rem;
+}
+
+.productEditDelete p {
+  font-size: 2rem;
+}
+
+.productEditDelete .buttons {
+  display: flex;
+  margin: -2rem 0;
+  gap: 1rem;
+}
+
+.edit {
+  color: lightgreen;
+  font-family: "Dongle";
+  font-size: 1.2rem;
+}
+
+.manageSearch {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.manageSearch img {
+  height: 2.2rem;
+}

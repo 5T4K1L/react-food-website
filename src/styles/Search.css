@@ -5,13 +5,6 @@
   gap: 8px;
 }
 
-.searchContainer button {
-  background-color: #680300;
-  padding: 5px 8px;
-  border-radius: 10px;
-  text-align: center;
-}
-
 .searchContainer img {
   height: 20px;
   display: flex;
