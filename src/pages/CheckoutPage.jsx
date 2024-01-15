@@ -21,6 +21,8 @@ const CheckoutPage = () => {
   const [fee, setFee] = useState();
   const [customer, setCustomer] = useState();
   const [address, setAddress] = useState();
+  const [message, setMessage] = useState();
+  const [phone, setPhone] = useState();
   const nav = useNavigate();
 
   const debouncedSetName = debounce((value) => {
@@ -28,6 +30,12 @@ const CheckoutPage = () => {
   }, 10);
   const debouncedSetAddress = debounce((value) => {
     setAddress(value);
+  }, 10);
+  const debouncedSetMessage = debounce((value) => {
+    setMessage(value);
+  }, 10);
+  const debouncedSetPhone = debounce((value) => {
+    setPhone(value);
   }, 10);
 
   onAuthStateChanged(auth, (user) => {
@@ -70,6 +78,8 @@ const CheckoutPage = () => {
 
     cart.forEach(async (userCart) => {
       await addDoc(collection(db, "orderedProducts"), {
+        phone,
+        message,
         customer,
         address,
         productName: userCart.product_name,
@@ -113,6 +123,16 @@ const CheckoutPage = () => {
           onChange={(e) => debouncedSetName(e.target.value)}
           type="text"
           placeholder="Full Name"
+        />
+        <input
+          onChange={(e) => debouncedSetMessage(e.target.value)}
+          type="text"
+          placeholder="Message"
+        />
+        <input
+          onChange={(e) => debouncedSetPhone(e.target.value)}
+          type="text"
+          placeholder="Phone"
         />
         <input
           onChange={(e) => debouncedSetAddress(e.target.value)}
