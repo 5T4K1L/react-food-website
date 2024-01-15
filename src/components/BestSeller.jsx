@@ -26,8 +26,8 @@ const BestSeller = () => {
     <div className="bestContainer">
       <p>Best Seller</p>
       <div className="productParent">
-        {bestSellerProducts.map((bestSellerProduct) => (
-          <div className="products">
+        {bestSellerProducts.map((bestSellerProduct, index) => (
+          <div className="products" key={index}>
             <a href={`/view-product/${bestSellerProduct.id}`}>
               <img src={bestSellerProduct.photoURL} alt="" />
               <p>{bestSellerProduct.product_name}</p>

@@ -23,7 +23,6 @@ const ProductView = () => {
 
   const debouncedSetSize = debounce((value) => {
     setSizeValue(value);
-    console.log(value);
   }, 10);
 
   onAuthStateChanged(auth, (user) => {

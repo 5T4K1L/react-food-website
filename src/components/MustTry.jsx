@@ -27,8 +27,8 @@ const MustTry = () => {
     <div className="bestContainer">
       <p>Must Try</p>
       <div className="productParent">
-        {mustTryProducts.map((mustTryProducts) => (
-          <div className="products">
+        {mustTryProducts.map((mustTryProducts, index) => (
+          <div className="products" key={index}>
             <a href={`/view-product/${mustTryProducts.id}`}>
               <img src={mustTryProducts.photoURL} alt="" />
               <p>{mustTryProducts.product_name}</p>

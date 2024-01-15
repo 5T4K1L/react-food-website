@@ -56,3 +56,33 @@
   font-size: 18px;
   font-family: "Dongle";
 }
+
+.cartPriceCheckout {
+  margin-top: 0;
+  color: #ff9393;
+}
+
+.checkPageContainer .forms {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.checkPageContainer .forms input {
+  border: none;
+  background: white;
+  font-family: "Dongle";
+  text-align: center;
+  border-radius: 1rem;
+  outline: none;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.noItems {
+  text-align: center;
+  color: white;
+  font-family: "Dongle";
+  font-size: 3rem;
+}

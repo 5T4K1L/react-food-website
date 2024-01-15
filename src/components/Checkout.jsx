@@ -15,7 +15,9 @@ const Checkout = ({ price, fee }) => {
         </div>
       </div>
       <div className="checkout">
-        <button>Checkout</button>
+        <a href="/checkout">
+          <button>Checkout</button>
+        </a>
       </div>
     </div>
   );

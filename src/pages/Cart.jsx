@@ -82,32 +82,41 @@ const Cart = () => {
   return (
     <div className="cartContainer">
       <Navbar />
-      {cart.map((carts) => (
-        <div className="cartProducts">
-          <div className="two">
-            <div className="cartImage">
-              <img src={carts.photoURL} alt="" />
-            </div>
-            <div className="cartDesc">
-              <p>{carts.product_name}</p>
-              <p>Product Description</p>
-              <p>{carts.size}</p>
-              <p>x{carts.quantity}</p>
-              <button
-                onClick={() => handleDelete(carts.id)}
-                className="deleteCart"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
+      {cart.length === 0 ? (
+        <h1 className="noItems">
+          You have no items <br />
+          yet on your cart.
+        </h1>
+      ) : (
+        <div>
+          {cart.map((carts, index) => (
+            <div className="cartProducts" key={index}>
+              <div className="two">
+                <div className="cartImage">
+                  <img src={carts.photoURL} alt="" />
+                </div>
+                <div className="cartDesc">
+                  <p>{carts.product_name}</p>
+                  <p>Product Description</p>
+                  <p>{carts.size}</p>
+                  <p>x{carts.quantity}</p>
+                  <button
+                    onClick={() => handleDelete(carts.id)}
+                    className="deleteCart"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
 
-          <div className="cartPrice">
-            <p>Php {carts.price}</p>
-          </div>
+              <div className="cartPrice">
+                <p>Php {carts.price}</p>
+              </div>
+            </div>
+          ))}
+          <Checkout price={price} fee={fee} />
         </div>
-      ))}
-      <Checkout price={price} fee={fee} />
+      )}
     </div>
   );
 };

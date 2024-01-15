@@ -30,9 +30,11 @@ const Menu = () => {
           <p>Products</p>
         </a>
         {category.map((cat, index) => (
-          <a href={`/category/${cat.category}`}>
-            <p>{cat.category}</p>
-          </a>
+          <div key={index}>
+            <a href={`/category/${cat.category}`}>
+              <p>{cat.category}</p>
+            </a>
+          </div>
         ))}
       </div>
     </div>
