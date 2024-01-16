@@ -11,6 +11,8 @@ import AdminPanel from "./pages/AdminPanel";
 import ManageProducts from "./pages/ManageProducts";
 import EditProduct from "./pages/EditProduct";
 import AddProduct from "./pages/AddProduct";
+import ManageOrders from "./pages/ManageOrders";
+import UserOrder from "./pages/UserOrder";
 
 const App = () => {
   document.title = "Kuya Jher";
@@ -33,6 +35,9 @@ const App = () => {
         <Route path="/manage-products" element={<ManageProducts />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/edit/:productName" element={<EditProduct />} />
+
+        <Route path="/orders" element={<ManageOrders />} />
+        <Route path="/orders/:user" element={<UserOrder />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,87 @@
+.userOrder {
+  font-family: "Dongle";
+  color: white;
+  text-align: center;
+  font-size: 23px;
+}
+
+.userOrder .buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: -1.5rem;
+}
+
+.userOrder .buttons button:nth-child(1) {
+  font-size: 1rem;
+  padding: 0 2rem;
+  border-radius: 1rem;
+  background: white;
+  color: #90b500;
+  font-family: "Dongle";
+}
+
+.userOrder .buttons button:nth-child(2) {
+  font-size: 1rem;
+  padding: 0 2rem;
+  border-radius: 1rem;
+  background: #deffdd;
+  color: #00aa3a;
+  font-family: "Dongle";
+}
+
+.userOrder .address {
+  display: flex;
+  margin: 0 2rem;
+  gap: 0.5rem;
+}
+
+.userOrder .phone {
+  display: flex;
+  margin: 0 2rem;
+  gap: 0.5rem;
+  margin-top: -2rem;
+}
+
+.userOrder .order {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: -2rem;
+  margin-top: -1rem;
+  font-size: 1.2rem;
+}
+
+.userOrder .order p:last-child {
+  color: #ff8d8d;
+}
+
+.userOrder .total {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+  margin-left: 18rem;
+}
+
+.userOrder .total p:first-child {
+  font-size: 1.5rem;
+}
+
+.userOrder .message {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 2rem;
+  margin-top: -1rem;
+}
+
+.userOrder .receipt button {
+  background-color: #00a3c7;
+  color: white;
+  font-family: "Dongle";
+  font-size: 1.5rem;
+  display: flex;
+  margin: 0 2rem;
+  padding: 0 3rem;
+  border-radius: 1rem;
+}

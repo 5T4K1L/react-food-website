@@ -78,6 +78,7 @@ const CheckoutPage = () => {
 
     cart.forEach(async (userCart) => {
       await addDoc(collection(db, "orderedProducts"), {
+        order_status: "Undelivered",
         phone,
         message,
         customer,
@@ -86,6 +87,7 @@ const CheckoutPage = () => {
         quantity: userCart.quantity,
         size: userCart.size,
         price: userCart.price,
+        total: price,
       });
     });
 

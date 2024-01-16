@@ -1,0 +1,64 @@
+.manageOrders .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.manageOrders .links a {
+  background-color: #ffecec;
+  margin-bottom: 1rem;
+  color: black;
+  display: flex;
+  font-family: "Dongle";
+  justify-content: space-evenly;
+  width: 20rem;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  height: 3rem;
+  align-items: center;
+}
+
+.manageOrders .links p:nth-child(2) {
+  font-size: 1rem;
+  color: #ff8383;
+}
+
+.manageOrders .links .delivered {
+  background-color: #deffdd;
+  margin-bottom: 1rem;
+  color: black;
+  display: flex;
+  font-family: "Dongle";
+  justify-content: space-evenly;
+  width: 20rem;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  height: 3rem;
+  align-items: center;
+}
+
+.manageOrders .links .delivered p:nth-child(2) {
+  font-size: 1rem;
+  color: #00aa3a;
+}
+
+.manageOrders .links .outfordelivery {
+  background-color: white;
+  margin-bottom: 1rem;
+  color: black;
+  display: flex;
+  font-family: "Dongle";
+  justify-content: space-evenly;
+  width: 20rem;
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  height: 3rem;
+  align-items: center;
+}
+
+.manageOrders .links .outfordelivery p:nth-child(2) {
+  font-size: 1rem;
+  color: #90b500;
+}
