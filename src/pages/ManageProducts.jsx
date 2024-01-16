@@ -30,6 +30,7 @@ const ManageProducts = () => {
 
   const deleteProduct = async (productID) => {
     await deleteDoc(doc(db, "products", productID));
+    window.location.reload();
   };
 
   return (

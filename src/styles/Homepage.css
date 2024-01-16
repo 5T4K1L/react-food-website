@@ -9,3 +9,31 @@ body {
   background-color: #270100;
   height: 100dvh;
 }
+
+.homepageContainer {
+  position: relative;
+}
+
+.loginAsGuest {
+  margin: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, 100%);
+}
+
+.loginAsGuest h1 {
+  font-family: "Dawning of a New Day";
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.loginAsGuest button {
+  color: white;
+  font-family: "Dongle";
+  background-color: #4c2726;
+  font-size: 2rem;
+  width: 20rem;
+  border-radius: 1rem;
+}
