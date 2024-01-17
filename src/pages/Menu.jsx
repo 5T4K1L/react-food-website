@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "../styles/Menu.css";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import { Helmet } from "react-helmet";
 
 const Menu = () => {
   const [category, setCategory] = useState([]);
@@ -21,10 +22,9 @@ const Menu = () => {
   }, []);
   return (
     <div className="menuContainer">
-      <meta
-        name="google-adsense-account"
-        content="ca-pub-9490464779487082"
-      ></meta>
+      <Helmet>
+        <meta name="google-adsense-account" content="ca-pub-9490464779487082" />
+      </Helmet>
       <Navbar />
       <div className="links">
         <a href="/">

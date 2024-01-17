@@ -13,6 +13,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import "../styles/Cart.css";
 import { debounce } from "lodash";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const CheckoutPage = () => {
   const [userUID, setUserUID] = useState();
@@ -103,10 +104,9 @@ const CheckoutPage = () => {
 
   return (
     <div className="checkPageContainer">
-      <meta
-        name="google-adsense-account"
-        content="ca-pub-9490464779487082"
-      ></meta>
+      <Helmet>
+        <meta name="google-adsense-account" content="ca-pub-9490464779487082" />
+      </Helmet>
       <Navbar></Navbar>
       {cart.map((carts, index) => (
         <div key={index} className="cartProducts">
