@@ -3,7 +3,8 @@
   margin: 0 2rem;
   border-radius: 1em;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 2rem;
   height: 10rem;
   padding: 1em;
   align-items: center;
@@ -12,12 +13,19 @@
 
 .featuredContainer .leftSide {
   position: relative;
-  transform: translate(0, -10%);
+  transform: translate(0, -20%);
 }
 
 .featuredContainer .leftSide p {
   font-family: "Euphoria Script";
   font-size: 30px;
+}
+
+.featuredContainer .leftSide .button {
+  margin-top: -2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .featuredContainer .leftSide button {
@@ -28,9 +36,6 @@
   padding: 0 1em;
   border-radius: 2em;
   width: 6rem;
-  position: absolute;
-  top: 80%;
-  transform: translate(20%, -50%);
 }
 
 .featuredContainer .rightSide img {

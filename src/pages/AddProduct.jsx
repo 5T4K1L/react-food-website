@@ -14,6 +14,7 @@ const AddProduct = () => {
   const [file, setFile] = useState();
   const [flavor, setFlavor] = useState();
   const [toppings, setToppings] = useState();
+  const [featured, setFeatured] = useState();
 
   const [size1, setSize1] = useState();
   const [price1, setPrice1] = useState();
@@ -55,6 +56,7 @@ const AddProduct = () => {
 
       let haveToppings = false;
       let haveFlavor = false;
+      let isFeatured = false;
 
       if (toppings === "yes") {
         haveToppings = true;
@@ -68,8 +70,15 @@ const AddProduct = () => {
         haveFlavor = false;
       }
 
+      if (featured === "yes") {
+        isFeatured = true;
+      } else {
+        isFeatured = false;
+      }
+
       // Add document to the "products" collection
       await addDoc(collection(db, "products"), {
+        featured: isFeatured,
         have_flavors: haveFlavor,
         have_toppings: haveToppings,
         category: useCat,
@@ -193,6 +202,13 @@ const AddProduct = () => {
         </select>
         <select onChange={(e) => setFlavor(e.target.value)}>
           <option>Flavors Available?</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div className="ninth">
+        <select onChange={(e) => setFeatured(e.target.value)}>
+          <option value="">Add to Featured?</option>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>

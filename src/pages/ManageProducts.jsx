@@ -51,29 +51,31 @@ const ManageProducts = () => {
         </a>
       </div>
 
-      <div className="productsContainer">
-        {product
-          .filter((prod) => prod.product_name.toLowerCase().includes(search))
-          .map((prod, index) => (
-            <div className="productContent" key={index}>
-              <div className="two">
-                <div className="cartImage">
-                  <img src={prod.photoURL} alt="" />
-                </div>
-                <div className="productEditDelete">
-                  <p>{prod.product_name}</p>
-                  <div className="buttons">
-                    <button
-                      onClick={() => deleteProduct(prod.id)}
-                      className="deleteCart"
-                    >
-                      Delete
-                    </button>
+      <div className="containerProducts">
+        <div className="productsContainer">
+          {product
+            .filter((prod) => prod.product_name.toLowerCase().includes(search))
+            .map((prod, index) => (
+              <div className="productContent" key={index}>
+                <div className="two">
+                  <div className="cartImage">
+                    <img src={prod.photoURL} alt="" />
+                  </div>
+                  <div className="productEditDelete">
+                    <p>{prod.product_name}</p>
+                    <div className="buttons">
+                      <button
+                        onClick={() => deleteProduct(prod.id)}
+                        className="deleteCart"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
     </div>
   );
