@@ -4,7 +4,6 @@ import { db } from "../firebase";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Search from "../components/Search";
-import { Helmet } from "react-helmet";
 
 const CategoryView = () => {
   const { category } = useParams();
@@ -32,9 +31,6 @@ const CategoryView = () => {
 
   return (
     <div className="productContainer">
-      <Helmet>
-        <meta name="google-adsense-account" content="ca-pub-9490464779487082" />
-      </Helmet>
       <Navbar />
       <Search />
 

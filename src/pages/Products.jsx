@@ -5,7 +5,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import { debounce } from "lodash";
-import { Helmet } from "react-helmet";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -30,9 +29,6 @@ const Products = () => {
   }, []);
   return (
     <div className="productContainer">
-      <Helmet>
-        <meta name="google-adsense-account" content="ca-pub-9490464779487082" />
-      </Helmet>
       <Navbar />
       <div className="searchContainer">
         <form action="">

@@ -17,6 +17,7 @@ import { auth } from "./firebase";
 import { onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import ManageCategories from "./pages/ManageCategories";
 import AddCategory from "./pages/AddCategory";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const App = () => {
   const [currentUser, setUser] = useState();
@@ -63,6 +64,8 @@ const App = () => {
 
             <Route path="/manage-categories" element={<ManageCategories />} />
             <Route path="/add-category" element={<AddCategory />} />
+
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </BrowserRouter>
       )}
