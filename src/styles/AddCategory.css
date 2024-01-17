@@ -1,0 +1,30 @@
+.addCategory {
+  position: relative;
+}
+
+.addCategory .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 200%);
+}
+
+.addCategory .content .input {
+  display: flex;
+  justify-content: center;
+}
+
+.addCategory .content button {
+  background-color: #deffdd;
+  font-family: "Dongle";
+  font-size: 1.5rem;
+  padding: 0 2rem;
+  border-radius: 1rem;
+  width: 15rem;
+}
+
+.addCategory .content .button {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

@@ -62,3 +62,23 @@
   font-size: 1rem;
   color: #90b500;
 }
+
+.manageOrders .totalIncome {
+  margin-top: 2rem;
+  background-color: white;
+  font-family: "Dongle";
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  height: 3rem;
+}
+
+.manageOrders .totalIncome p:first-child {
+  font-size: 1.1rem;
+}
+
+.manageOrders .totalIncome p:last-child {
+  font-size: 1.5rem;
+  color: #ff3a3a;
+}

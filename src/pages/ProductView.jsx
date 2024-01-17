@@ -87,7 +87,7 @@ const ProductView = () => {
         <select onChange={(e) => debouncedSetSize(e.target.value)}>
           <option>Choose Sizes</option>
           {product.sizes &&
-            product.sizes.map((size) => <option key={size}>{size}</option>)}
+            product.sizes.map((size) => <option key={size.id}>{size}</option>)}
         </select>
         <input
           type="number"
@@ -97,6 +97,20 @@ const ProductView = () => {
           onChange={(e) => debouncedSetQuantity(e.target.value)}
         />
       </div>
+      {product.have_flavors && product.have_toppings ? (
+        <div className="additionals">
+          <input type="text" placeholder="Toppings" />
+          <input type="text" placeholder="Flavor" />
+        </div>
+      ) : product.have_flavors ? (
+        <div className="additionals">
+          <input type="text" placeholder="Flavor" />
+        </div>
+      ) : product.have_toppings ? (
+        <div className="additionals">
+          <input type="text" placeholder="Toppings" />
+        </div>
+      ) : null}
 
       <div className="addtocart">
         <button onClick={handleAdd}>ADD TO CART</button>

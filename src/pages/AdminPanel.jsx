@@ -10,7 +10,7 @@ const AdminPanel = () => {
         <a href="/manage-products">
           <button>Manage Products</button>
         </a>
-        <a>
+        <a href="/manage-categories">
           <button>Manage Categories</button>
         </a>
         <a href="/orders">

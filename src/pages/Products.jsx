@@ -56,8 +56,18 @@ const Products = () => {
                   <Link to={`/view-product/${product.id}`}>
                     <div className="product">
                       <img src={product.photoURL} alt="" />
-                      <p className="name">{product.product_name}</p>
-                      <p className="price">Php {product.regular_price}</p>
+                      <p className="name">
+                        {product.product_name
+                          .split(" ") // Split the name into an array of words
+                          .slice(0, 2) // Keep only the first two words
+                          .join(" ") +
+                          (product.product_name.split(" ").length > 2
+                            ? " ..."
+                            : "")}
+                      </p>
+                      <p className="price">
+                        Php {product.sizes[0].match(/Php (\d+)/)[1]}
+                      </p>
                     </div>
                   </Link>
                 </div>

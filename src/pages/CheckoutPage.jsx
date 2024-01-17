@@ -79,10 +79,10 @@ const CheckoutPage = () => {
     cart.forEach(async (userCart) => {
       await addDoc(collection(db, "orderedProducts"), {
         order_status: "Undelivered",
-        phone,
-        message,
-        customer,
-        address,
+        phone: phone || "",
+        message: message || "",
+        customer: customer || "",
+        address: address || "",
         productName: userCart.product_name,
         quantity: userCart.quantity,
         size: userCart.size,
@@ -122,21 +122,25 @@ const CheckoutPage = () => {
       ))}
       <div className="forms">
         <input
+          required
           onChange={(e) => debouncedSetName(e.target.value)}
           type="text"
           placeholder="Full Name"
         />
         <input
+          required
           onChange={(e) => debouncedSetMessage(e.target.value)}
           type="text"
           placeholder="Message"
         />
         <input
+          required
           onChange={(e) => debouncedSetPhone(e.target.value)}
           type="text"
           placeholder="Phone"
         />
         <input
+          required
           onChange={(e) => debouncedSetAddress(e.target.value)}
           type="text"
           placeholder="Address / Meet Up Place / Pick-up"

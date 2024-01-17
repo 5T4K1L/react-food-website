@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import AdminNavbar from "../components/AdminNavbar";
 import "../styles/ManageOrders.css";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
 const ManageOrders = () => {
   const [order, setOrder] = useState([]);
   const [deld, setDeld] = useState([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
+    let totalIncome = 0;
     const getOrders = async () => {
       const data = await getDocs(collection(db, "orderedProducts"));
       setOrder(
@@ -25,9 +27,12 @@ const ManageOrders = () => {
           ...doc.data(),
         }))
       );
+      deld.forEach((del) => {
+        setTotal(Number((totalIncome += del.total)));
+      });
     };
     getOrders();
-  }, []);
+  }, [deld]);
 
   const uniqueOrders = Array.from(new Set(order.map((ord) => ord.customer)))
     .map((customer) => {
@@ -44,6 +49,7 @@ const ManageOrders = () => {
             <div className="delivered">
               <p>{del.customer}</p>
               <p>{del.order_status}</p>
+              <p>{del.total}</p>
             </div>
           </div>
         </div>
@@ -65,6 +71,13 @@ const ManageOrders = () => {
           </div>
         </div>
       ))}
+
+      <div className="prices">
+        <div className="totalIncome">
+          <p>Total Income:</p>
+          <p>{total}</p>
+        </div>
+      </div>
     </div>
   );
 };

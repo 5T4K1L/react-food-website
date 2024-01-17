@@ -31,8 +31,13 @@ const MustTry = () => {
           <div className="products" key={index}>
             <a href={`/view-product/${mustTryProducts.id}`}>
               <img src={mustTryProducts.photoURL} alt="" />
-              <p>{mustTryProducts.product_name}</p>
-              <p>Php {mustTryProducts.regular_price}</p>
+              <p>
+                {mustTryProducts.product_name.split(" ").slice(0, 2).join(" ") +
+                  (mustTryProducts.product_name.split(" ").length > 2
+                    ? " ..."
+                    : "")}
+              </p>
+              <p>Php {mustTryProducts.sizes[0].match(/Php (\d+)/)[1]}</p>
             </a>
           </div>
         ))}

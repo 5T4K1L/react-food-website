@@ -30,8 +30,16 @@ const BestSeller = () => {
           <div className="products" key={index}>
             <a href={`/view-product/${bestSellerProduct.id}`}>
               <img src={bestSellerProduct.photoURL} alt="" />
-              <p>{bestSellerProduct.product_name}</p>
-              <p>Php {bestSellerProduct.regular_price}</p>
+              <p>
+                {bestSellerProduct.product_name
+                  .split(" ") // Split the name into an array of words
+                  .slice(0, 2) // Keep only the first two words
+                  .join(" ") +
+                  (bestSellerProduct.product_name.split(" ").length > 2
+                    ? "..."
+                    : "")}
+              </p>
+              <p>Php {bestSellerProduct.sizes[0].match(/Php (\d+)/)[1]}</p>
             </a>
           </div>
         ))}

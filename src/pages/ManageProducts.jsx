@@ -63,9 +63,6 @@ const ManageProducts = () => {
                 <div className="productEditDelete">
                   <p>{prod.product_name}</p>
                   <div className="buttons">
-                    <a href={`/edit/${prod.product_name}`}>
-                      <button className="edit">Edit</button>
-                    </a>
                     <button
                       onClick={() => deleteProduct(prod.id)}
                       className="deleteCart"

@@ -49,6 +49,7 @@ const UserOrder = () => {
       await addDoc(collection(db, "deliveredProduct"), {
         customer: order[0].customer,
         order_status: "Delivered",
+        total: order[0].total,
       });
 
       const userOrderQuery = query(

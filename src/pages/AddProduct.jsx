@@ -12,6 +12,8 @@ const AddProduct = () => {
   const [useCat, setUseCat] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState();
+  const [flavor, setFlavor] = useState();
+  const [toppings, setToppings] = useState();
 
   const [size1, setSize1] = useState();
   const [price1, setPrice1] = useState();
@@ -51,19 +53,36 @@ const AddProduct = () => {
       // Get the download URL
       const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
 
+      let haveToppings = false;
+      let haveFlavor = false;
+
+      if (toppings === "yes") {
+        haveToppings = true;
+      } else if (toppings === "no") {
+        haveToppings = false;
+      }
+
+      if (flavor === "yes") {
+        haveFlavor = true;
+      } else if (flavor === "no") {
+        haveFlavor = false;
+      }
+
       // Add document to the "products" collection
       await addDoc(collection(db, "products"), {
+        have_flavors: haveFlavor,
+        have_toppings: haveToppings,
         category: useCat,
         photoURL: downloadURL,
         must_or_best: mustBest,
         productDescription: desc,
         product_name: name,
         sizes: [
-          size1 + (price1 && ` (Php ${price1})`),
-          size2 + (price2 && ` (Php ${price2})`),
-          size3 + (price3 && ` (Php ${price3})`),
-          size4 + (price4 && ` (Php ${price4})`),
-          size5 + (price5 && ` (Php ${price5})`),
+          size1 + (price1 && ` (Php ${price1})`) || "Not Available",
+          size2 + (price2 && ` (Php ${price2})`) || "Not Available",
+          size3 + (price3 && ` (Php ${price3})`) || "Not Available",
+          size4 + (price4 && ` (Php ${price4})`) || "Not Available",
+          size5 + (price5 && ` (Php ${price5})`) || "Not Available",
         ],
       });
 
@@ -82,9 +101,9 @@ const AddProduct = () => {
           placeholder="Product Name"
         />
         <select onChange={(e) => setUseCat(e.target.value)}>
-          <option>Category</option>
-          {category.map((cat) => (
-            <option key={cat.id} value={cat.category}>
+          <option key="default">Category</option>
+          {category.map((cat, index) => (
+            <option key={index} value={cat.category}>
               {cat.category}
             </option>
           ))}
@@ -110,12 +129,12 @@ const AddProduct = () => {
         <input
           onChange={(e) => setSize1(e.target.value)}
           type="text"
-          placeholder="Available Size 1"
+          placeholder="Available Regular Size"
         />
         <input
           onChange={(e) => setPrice1(e.target.value)}
           type="text"
-          placeholder="Price"
+          placeholder="Regular Price"
         />
       </div>
       <div className="fourth">
@@ -166,9 +185,21 @@ const AddProduct = () => {
           placeholder="Price"
         />
       </div>
+      <div className="eighth">
+        <select onChange={(e) => setToppings(e.target.value)}>
+          <option>Toppings Available?</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <select onChange={(e) => setFlavor(e.target.value)}>
+          <option>Flavors Available?</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
       <textarea
         onChange={(e) => setDesc(e.target.value)}
-        placeholder="Product Description"
+        placeholder="Product Description w/ Toppings/Flavor/etc."
         cols="30"
         rows="10"
       ></textarea>
