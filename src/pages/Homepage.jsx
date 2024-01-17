@@ -10,6 +10,10 @@ import MustTry from "../components/MustTry";
 const Homepage = () => {
   return (
     <div className="homepageContainer">
+      <meta
+        name="google-adsense-account"
+        content="ca-pub-9490464779487082"
+      ></meta>
       <Navbar />
       <Featured />
       <Category />

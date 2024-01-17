@@ -34,6 +34,10 @@ const App = () => {
     <div className="homepageContainer">
       {!currentUser ? (
         <div className="loginAsGuest">
+          <meta
+            name="google-adsense-account"
+            content="ca-pub-9490464779487082"
+          ></meta>
           <h1>Kuya Jher</h1>
           <button onClick={handleLogin}>Login as Guest</button>
         </div>

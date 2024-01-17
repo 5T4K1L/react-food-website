@@ -21,6 +21,10 @@ const Menu = () => {
   }, []);
   return (
     <div className="menuContainer">
+      <meta
+        name="google-adsense-account"
+        content="ca-pub-9490464779487082"
+      ></meta>
       <Navbar />
       <div className="links">
         <a href="/">

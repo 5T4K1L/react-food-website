@@ -103,6 +103,10 @@ const CheckoutPage = () => {
 
   return (
     <div className="checkPageContainer">
+      <meta
+        name="google-adsense-account"
+        content="ca-pub-9490464779487082"
+      ></meta>
       <Navbar></Navbar>
       {cart.map((carts, index) => (
         <div key={index} className="cartProducts">
