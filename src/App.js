@@ -19,8 +19,6 @@ import ManageCategories from "./pages/ManageCategories";
 import AddCategory from "./pages/AddCategory";
 
 const App = () => {
-  document.title = "Kuya Jher";
-
   const [currentUser, setUser] = useState();
   onAuthStateChanged(auth, (user) => {
     setUser(user);
