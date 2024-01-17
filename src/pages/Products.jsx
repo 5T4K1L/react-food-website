@@ -62,7 +62,7 @@ const Products = () => {
                           .slice(0, 2) // Keep only the first two words
                           .join(" ") +
                           (product.product_name.split(" ").length > 2
-                            ? " ..."
+                            ? ""
                             : "")}
                       </p>
                       <p className="price">

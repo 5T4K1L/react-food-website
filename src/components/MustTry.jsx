@@ -34,7 +34,7 @@ const MustTry = () => {
               <p>
                 {mustTryProducts.product_name.split(" ").slice(0, 2).join(" ") +
                   (mustTryProducts.product_name.split(" ").length > 2
-                    ? " ..."
+                    ? ""
                     : "")}
               </p>
               <p>Php {mustTryProducts.sizes[0].match(/Php (\d+)/)[1]}</p>
