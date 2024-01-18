@@ -18,7 +18,8 @@
 
 .featuredContainer .leftSide p {
   font-family: "Euphoria Script";
-  font-size: 30px;
+  font-size: 25px;
+  margin-bottom: 2rem;
 }
 
 .featuredContainer .leftSide .button {
