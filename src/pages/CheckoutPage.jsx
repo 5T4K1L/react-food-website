@@ -87,6 +87,8 @@ const CheckoutPage = () => {
         quantity: userCart.quantity,
         size: userCart.size,
         price: userCart.price,
+        flavor: (userCart.flavor && userCart.flavor) || null,
+        toppings: (userCart.toppings && userCart.toppings) || null,
         total: price,
       });
     });
@@ -114,7 +116,14 @@ const CheckoutPage = () => {
               <p>{carts.product_name}</p>
               <p>Product Description</p>
               <p>{carts.size}</p>
-              <p>x{carts.quantity}</p>
+              <p style={{ fontSize: 12, marginBottom: -10 }}>
+                {" "}
+                {carts.toppings && carts.toppings}
+              </p>
+              <p style={{ fontSize: 12, marginBottom: -20 }}>
+                {carts.flavor && carts.flavor}
+              </p>
+              <p style={{ marginBottom: -5 }}>x{carts.quantity}</p>
               <p className="cartPriceCheckout">Php {carts.price}</p>
             </div>
           </div>

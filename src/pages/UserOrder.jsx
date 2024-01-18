@@ -85,12 +85,18 @@ const UserOrder = () => {
       </div>
 
       {order.map((ord, index) => (
-        <div key={index} className="order">
-          <p>{ord.productName}</p>
-          <p>{ord.quantity}</p>
-          <p>{ord.size}</p>
-          <p>{ord.price}</p>
-        </div>
+        <>
+          <div key={index} className="order">
+            <p>{ord.productName}</p>
+            <p>{ord.quantity}</p>
+            <p>{ord.size}</p>
+            <p>{ord.price}</p>
+          </div>
+          <p style={{ fontSize: 18 }}>
+            Toppings / Flavors: {ord.flavor && ord.flavor} |{" "}
+            {ord.toppings && ord.toppings}
+          </p>
+        </>
       ))}
       <div className="total">
         <p>Total</p>

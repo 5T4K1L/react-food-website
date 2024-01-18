@@ -58,10 +58,8 @@
 .userOrder .total {
   margin-top: 4rem;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  gap: 2rem;
-  margin-left: 18rem;
+  gap: 1rem;
 }
 
 .userOrder .total p:first-child {

@@ -17,12 +17,23 @@ const ProductView = () => {
   const [sizeValue, setSizeValue] = useState();
   const [quantity, setQuantity] = useState(1);
 
+  const [flavor, setFlavor] = useState();
+  const [toppings, setToppings] = useState();
+
   const debouncedSetQuantity = debounce((value) => {
     setQuantity(value);
   }, 100);
 
   const debouncedSetSize = debounce((value) => {
     setSizeValue(value);
+  }, 10);
+
+  const debouncedSetFlavor = debounce((value) => {
+    setFlavor(value);
+  }, 10);
+
+  const debouncedSetToppings = debounce((value) => {
+    setToppings(value);
   }, 10);
 
   onAuthStateChanged(auth, (user) => {
@@ -53,6 +64,8 @@ const ProductView = () => {
         const afterPhp = match[1];
 
         await addDoc(collection(db, "userCart"), {
+          flavor: flavor || null,
+          toppings: toppings || null,
           photoURL: product.photoURL,
           quantity: Number(quantity),
           product_name: product.product_name,
@@ -64,7 +77,7 @@ const ProductView = () => {
         nav(-1);
       }
     },
-    [sizeValue, quantity, product, currentUser, nav]
+    [sizeValue, quantity, product, currentUser, nav, flavor, toppings]
   );
 
   return (
@@ -104,11 +117,19 @@ const ProductView = () => {
         </div>
       ) : product.have_flavors ? (
         <div className="additionals">
-          <input type="text" placeholder="Flavor" />
+          <input
+            type="text"
+            placeholder="Flavor"
+            onChange={(e) => debouncedSetFlavor(e.target.value)}
+          />
         </div>
       ) : product.have_toppings ? (
         <div className="additionals">
-          <input type="text" placeholder="Toppings" />
+          <input
+            type="text"
+            placeholder="Toppings"
+            onChange={(e) => debouncedSetToppings(e.target.value)}
+          />
         </div>
       ) : null}
 
