@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../styles/AddProduct.css";
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import { db, storage } from "../firebase";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import { uploadImagesToCloudinary } from "../utils/cloudinary";
+
+// Cloudinary setup
+const cloudName = "dqswgivnr";
+const uploadPreset = "pajourney";
 
 const AddProduct = () => {
   const [name, setName] = useState("");
@@ -45,44 +49,27 @@ const AddProduct = () => {
 
   const handleAdd = async () => {
     try {
-      const storageRef = ref(storage, name);
-      const uploadTask = uploadBytesResumable(storageRef, file);
+      let photoURL = "";
 
-      // Wait for the upload task to complete
-      await uploadTask;
-
-      // Get the download URL
-      const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-
-      let haveToppings = false;
-      let haveFlavor = false;
-      let isFeatured = false;
-
-      if (toppings === "yes") {
-        haveToppings = true;
-      } else if (toppings === "no") {
-        haveToppings = false;
+      if (file) {
+        const uploadedUrls = await uploadImagesToCloudinary(
+          [file],
+          cloudName,
+          uploadPreset
+        );
+        photoURL = uploadedUrls[0];
       }
 
-      if (flavor === "yes") {
-        haveFlavor = true;
-      } else if (flavor === "no") {
-        haveFlavor = false;
-      }
+      let haveToppings = toppings === "yes";
+      let haveFlavor = flavor === "yes";
+      let isFeatured = featured === "yes";
 
-      if (featured === "yes") {
-        isFeatured = true;
-      } else {
-        isFeatured = false;
-      }
-
-      // Add document to the "products" collection
       await addDoc(collection(db, "products"), {
         featured: isFeatured,
         have_flavors: haveFlavor,
         have_toppings: haveToppings,
         category: useCat,
-        photoURL: downloadURL,
+        photoURL: photoURL,
         must_or_best: mustBest,
         productDescription: desc,
         product_name: name,

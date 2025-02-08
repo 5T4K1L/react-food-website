@@ -4,13 +4,13 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDP4mCNQu_NxEhzVN69IGJBksZLuI_30gE",
-  authDomain: "react-ecommerce-571f8.firebaseapp.com",
-  projectId: "react-ecommerce-571f8",
-  storageBucket: "react-ecommerce-571f8.appspot.com",
-  messagingSenderId: "983062650707",
-  appId: "1:983062650707:web:a875ac5618f368031a4ba6",
-  measurementId: "G-DEX3D8BEYF",
+  apiKey: "AIzaSyAga68ygBXIrkgO-vjkyYlA8amE2wyAOEQ",
+  authDomain: "kuyajher-d1582.firebaseapp.com",
+  projectId: "kuyajher-d1582",
+  storageBucket: "kuyajher-d1582.firebasestorage.app",
+  messagingSenderId: "306132206293",
+  appId: "1:306132206293:web:adab4bd576d81a381ed85c",
+  measurementId: "G-5QZ0W9BQNR",
 };
 
 export const app = initializeApp(firebaseConfig);
